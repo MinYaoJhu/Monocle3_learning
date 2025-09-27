@@ -1,0 +1,16 @@
+"0","plot_pc_variance_explained(cds)"
+"2","G2;H2;Warningh: [38;5;250m`qplot()` was deprecated in ggplot2 3.4.0.
+[36mℹ[38;5;250m The deprecated feature was likely used in the [34mmonocle3[38;5;250m package.
+  Please report the issue to the authors.
+[90mThis warning is displayed once every 8 hours.[38;5;250m
+[90mCall `lifecycle::last_lifecycle_]8;;ide:run:warnings()warnings()]8;;` to see where this warning was[38;5;250m
+[90mgenerated.[38;5;250m[39mg
+"
+"2","G2;H2;Warningh: [38;5;250mThe `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+[36mℹ[38;5;250m Please use the `linewidth` argument instead.
+[36mℹ[38;5;250m The deprecated feature was likely used in the [34mmonocle3[38;5;250m package.
+  Please report the issue to the authors.
+[90mThis warning is displayed once every 8 hours.[38;5;250m
+[90mCall `lifecycle::last_lifecycle_]8;;ide:run:warnings()warnings()]8;;` to see where this warning was[38;5;250m
+[90mgenerated.[38;5;250m[39mg
+"
