@@ -1,0 +1,7 @@
+"0","expression_matrix <- readRDS(url(""https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/packer_embryo_expression.rds""))"
+"0","cell_metadata <- readRDS(url(""https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/packer_embryo_colData.rds""))"
+"0","gene_annotation <- readRDS(url(""https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/packer_embryo_rowData.rds""))"
+"0",""
+"0","cds <- new_cell_data_set(expression_matrix,"
+"0","                         cell_metadata = cell_metadata,"
+"0","                         gene_metadata = gene_annotation)"
