@@ -447,3 +447,54 @@ plot_cells(cds,
 The black lines show the structure of the graph. Note that the graph is not fully connected: cells in different partitions are in distinct components of the graph. The circles with numbers in them denote special points within the graph. Each leaf, denoted by light gray circles, corresponds to a different outcome (i.e. cell fate) of the trajectory. Black circles indicate branch nodes, in which cells can travel to one of several outcomes. You can control whether or not these are shown in the plot with the label_leaves and label_branch_points arguments to plot_cells. Please note that numbers within the circles are provided for reference purposes only.
 
 Now that we have a sense of where the early cells fall, we can call order_cells(), which will calculate where each cell falls in pseudotime. In order to do so order_cells()needs you to specify the root nodes of the trajectory graph. If you don't provide them as an argument, it will launch a graphical user interface for selecting one or more root nodes.
+
+
+``` r
+# cds <- order_cells(cds)
+```
+
+In the above example, we just chose one location, but you could pick as many as you want. Plotting the cells and coloring them by pseudotime shows how they were ordered:
+
+
+``` r
+# plot_cells(cds,
+#            color_cells_by = "pseudotime",
+#            label_cell_groups=FALSE,
+#            label_leaves=FALSE,
+#            label_branch_points=FALSE,
+#            graph_label_size=1.5)
+```
+
+
+``` r
+saveRDS(cds, "cds_after_ordering.rds")
+```
+
+```
+## Warning:
+```
+
+```
+##   saveRDS(cds, ...) does not save annoy or hnsw nearest
+##   neighbor indices, which you may need for future
+##   analyses.
+```
+
+```
+## 
+```
+
+```
+## We urge you to use the function
+## 
+##     save_monocle_objects()
+## 
+##   in order to save all of the information in the cds.
+##   See the notes in the save_monocle_objects() help
+##   documentation for additional information.
+```
+
+```
+## However, we are running base::saveRDS() as you requested.
+```
+
