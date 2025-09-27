@@ -693,6 +693,30 @@ In order to do so order_cells()needs you to specify the root nodes of
 the trajectory graph. If you don’t provide them as an argument, it will
 launch a graphical user interface for selecting one or more root
 nodes.</p>
+<pre class="r"><code># cds &lt;- order_cells(cds)</code></pre>
+<p>In the above example, we just chose one location, but you could pick
+as many as you want. Plotting the cells and coloring them by pseudotime
+shows how they were ordered:</p>
+<pre class="r"><code># plot_cells(cds,
+#            color_cells_by = &quot;pseudotime&quot;,
+#            label_cell_groups=FALSE,
+#            label_leaves=FALSE,
+#            label_branch_points=FALSE,
+#            graph_label_size=1.5)</code></pre>
+<pre class="r"><code>saveRDS(cds, &quot;cds_after_ordering.rds&quot;)</code></pre>
+<pre><code>## Warning:</code></pre>
+<pre><code>##   saveRDS(cds, ...) does not save annoy or hnsw nearest
+##   neighbor indices, which you may need for future
+##   analyses.</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## We urge you to use the function
+## 
+##     save_monocle_objects()
+## 
+##   in order to save all of the information in the cds.
+##   See the notes in the save_monocle_objects() help
+##   documentation for additional information.</code></pre>
+<pre><code>## However, we are running base::saveRDS() as you requested.</code></pre>
 </div>
 
 
