@@ -2,7 +2,9 @@
 title: "Getting started with Monocle 3"
 author: "Min-Yao"
 date: "2025-09-27"
-output: html_document
+output: 
+  html_document: 
+    keep_md: true
 ---
 
 # Load Monocle 3
@@ -165,7 +167,7 @@ Once cells have been clustered, we can ask what genes makes them different from 
 
 ```{r}
 marker_test_res <- top_markers(cds, group_cells_by="partition", 
-                               reference_cells=1000, cores=8)
+                               reference_cells=1000, cores=1)
 ```
 
 The data frame marker_test_res contains a number of metrics for how specifically expressed each gene is in each partition. We could group the cells according to cluster, partition, or any categorical variable in colData(cds). You can rank the table according to one or more of the specificity metrics and take the top gene for each cluster. For example, pseudo_R2 is one such measure. We can rank markers according to pseudo_R2 like this:
@@ -279,7 +281,7 @@ ncol(cds_subset)
 ```
 
 ```{r}
-pr_graph_test_res <- graph_test(cds_subset, neighbor_graph="knn", cores=8)
+pr_graph_test_res <- graph_test(cds_subset, neighbor_graph="knn", cores=1)
 pr_deg_ids <- row.names(subset(pr_graph_test_res, morans_I > 0.01 & q_value < 0.05))
 ```
 
@@ -350,7 +352,7 @@ To generate a Garnett file, first find the top markers that each annotated cell 
 assigned_type_marker_test_res <- top_markers(cds,
                                              group_cells_by="assigned_cell_type",
                                              reference_cells=1000,
-                                             cores=8)
+                                             cores=1)
 ```
 
 Next, filter these markers according to how stringent you want to be:
