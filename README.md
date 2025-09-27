@@ -5,9 +5,9 @@ This repository is a personal learning journal for mastering **Monocle 3**, a po
 ## 📌 Purpose
 
 I created this repo to:
-- Practice daily with Monocle 3 functions and workflows.
+- Practice daily with Monocle 3 functions and workflows following online documents.
 - Document what I learn, including examples, notes, and tips.
-- Build reproducible and annotated code for reference.
+- Build reproducible and annotated code for my future reference.
 
 ## 🛠️ Tools and Packages
 
