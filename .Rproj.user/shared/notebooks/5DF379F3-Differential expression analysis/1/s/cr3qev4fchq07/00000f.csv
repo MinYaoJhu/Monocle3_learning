@@ -1,0 +1,4 @@
+"0","gene_fits <- fit_models(cds_subset, model_formula_str = ""~embryo.time + batch"")"
+"0","fit_coefs <- coefficient_table(gene_fits)"
+"0","fit_coefs %>% filter(term != ""(Intercept)"") %>%"
+"0","      select(gene_short_name, term, q_value, estimate)"

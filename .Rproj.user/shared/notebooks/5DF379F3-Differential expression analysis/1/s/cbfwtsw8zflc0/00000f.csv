@@ -1,0 +1,7 @@
+"0","ciliated_genes <- c(""che-1"","
+"0","                    ""hlh-17"","
+"0","                    ""nhr-6"","
+"0","                    ""dmd-6"","
+"0","                    ""ceh-36"","
+"0","                    ""ham-1"")"
+"0","cds_subset <- cds[rowData(cds)$gene_short_name %in% ciliated_genes,]"
