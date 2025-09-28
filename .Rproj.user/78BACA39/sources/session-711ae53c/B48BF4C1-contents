@@ -2,7 +2,9 @@
 title: "Differential expression analysis"
 author: "Min-Yao"
 date: "2025-09-28"
-output: html_document
+output: 
+  html_document: 
+    keep_md: true
 ---
 
 ```{r}
