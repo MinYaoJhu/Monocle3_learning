@@ -1,0 +1,7 @@
+"0","# 5) Pick a root cell programmatically (highest AVP expression in this subset)"
+"0","if (!""AVP"" %in% rownames(integrated.sub)) {"
+"0","  stop(""Gene 'AVP' not found in integrated.sub; choose another early marker."")"
+"0","}"
+"0","max_avp   <- which.max(FetchData(integrated.sub, vars = ""AVP"")[[1]])"
+"0","root_cell <- colnames(integrated.sub)[max_avp]"
+"0","stopifnot(root_cell %in% colnames(cds))"

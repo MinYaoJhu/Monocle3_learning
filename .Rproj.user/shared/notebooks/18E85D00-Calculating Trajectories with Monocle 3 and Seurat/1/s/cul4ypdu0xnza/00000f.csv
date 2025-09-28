@@ -1,0 +1,41 @@
+"0","# 1) Bring the dataset up to your installed Seurat/SeuratObject schema"
+"0","hcabm40k <- SeuratObject::UpdateSeuratObject(hcabm40k)"
+"2","G3;Validating object structure
+g"
+"2","G3;Updating object slots
+g"
+"2","G3;Ensuring keys are in the proper structure
+g"
+"2","G2;H2;Warningh: Assay RNA changing from Assay to Assayg
+"
+"2","G3;Ensuring keys are in the proper structure
+g"
+"2","G3;Ensuring feature names don't have underscores or pipes
+g"
+"2","G3;Updating slots in RNA
+g"
+"2","G3;Validating object structure for Assay ‘RNA’
+g"
+"2","G3;Object representation is consistent with the most current Seurat version
+g"
+"0","# (optional but helpful) Slim the object and drop legacy stuff that can confuse later steps"
+"0","hcabm40k <- DietSeurat("
+"0","  hcabm40k,"
+"0","  assays    = DefaultAssay(hcabm40k),"
+"0","  dimreducs = NULL,"
+"0","  graphs    = NULL"
+"0",")"
+"0",""
+"0","# sanity checks"
+"0","DefaultAssay(hcabm40k)"
+"1","[1] ""RNA""
+"
+"0","head(hcabm40k$orig.ident)"
+"1","MantonBM1_HiSeq_8-CCCAATCGTATGCTTG-1 MantonBM1_HiSeq_8-CTGCTGTAGGACACCA-1 
+                           MantonBM1                            MantonBM1 
+MantonBM1_HiSeq_3-CAGCTGGGTACATGTC-1 MantonBM1_HiSeq_7-GCTTCCAAGATGTAAC-1 
+                           MantonBM1                            MantonBM1 
+MantonBM1_HiSeq_6-AGTGAGGCAGGGTTAG-1 MantonBM1_HiSeq_5-ATGTGTGCACCGAATT-1 
+                           MantonBM1                            MantonBM1 
+8 Levels: MantonBM1 MantonBM2 MantonBM3 MantonBM4 MantonBM5 ... MantonBM8
+"

@@ -1,0 +1,217 @@
+"0","# ---- Post-integration: scale, reduce, and cluster ----"
+"0","# Standard Seurat pipeline on the integrated assay."
+"0","integrated <- ScaleData(integrated)"
+"2","G3;Centering and scaling data matrix
+g"
+"2","  |                                                                         |                                                                 |   0%"
+"2","  |                                                                         |================================                                 |  50%"
+"2","  |                                                                         |=================================================================| 100%
+"
+"0","integrated <- RunPCA(integrated)"
+"2","G3;PC_ 1 
+Positive:  TMSB4X, CCL5, CD27, LAT, GZMA, MS4A1, CCL4, NKG7, SOCS3, IGHD 
+	   GPR183, KLRD1, KLRB1, GZMK, TYROBP, RGS1, FOS, GNLY, CD74, TRGC2 
+	   GZMH, S100A12, CD79A, CD14, PRF1, KLRF1, VIM, XCL2, FCN1, FCGR3A 
+Negative:  KIAA0101, KLF1, KCNH2, CA1, TYMS, AHSP, FAM178B, CA2, HBD, GATA1 
+	   HBQ1, BIRC5, CENPU, GYPA, EPCAM, CDT1, SMIM1, HBB, ALAS2, HMBS 
+	   MYL4, SYNGR1, TUBG1, CNRIP1, CCNB2, RHAG, HBA1, CENPF, BLVRB, FECH 
+PC_ 2 
+Positive:  LYZ, CST3, S100A9, FCN1, S100A8, CSTA, LST1, VCAN, TYROBP, LGALS1 
+	   MNDA, AIF1, GPX1, CD14, FCER1G, S100A12, CFD, CLEC7A, FGL2, MS4A6A 
+	   SERPINA1, CFP, PLAUR, KLF4, GSTP1, VIM, S100A6, G0S2, S100A4, GAPDH 
+Negative:  EEF1A1, RPL14, EEF1B2, RPL7A, GYPC, RPS2, RPLP0, LDHB, HSPA8, NPM1 
+	   CD27, LAT, UBB, RPL37A, CCL5, GZMA, AHSP, HAGH, GYPA, PRDX2 
+	   SOD1, CD79A, ATPIF1, MLLT3, ABO, HNRNPA1, CA1, KLF1, HBA2, MS4A1 
+PC_ 3 
+Positive:  IGLL1, VPREB1, STMN1, SOX4, CD79B, VPREB3, MZB1, SMIM24, PRSS57, CDCA7 
+	   FABP5, TCF4, CD24, ITM2C, SPINK2, NREP, PHGDH, PTMA, CD79A, C1QTNF4 
+	   CD74, IGHM, PDLIM1, TCL1A, CD38, HLA-DRA, KIAA0125, HLA-DPA1, IGFBP7, MME 
+Negative:  S100A6, ALAS2, GYPA, GYPB, AHSP, HBM, SLC4A1, CA1, CA2, RP11-20B24.2 
+	   CD36, HBA2, BLVRB, S100A4, RHAG, HBA1, TMEM56, HBD, HBB, MYL4 
+	   FTH1, HBQ1, HEMGN, KLF1, SELENBP1, RHCE, KCNH2, FAM178B, CR1L, CTSE 
+PC_ 4 
+Positive:  NKG7, CCL5, GZMA, HOPX, GNLY, KLRD1, KLRF1, PRSS57, CCL4, PRF1 
+	   KLRB1, GZMH, GZMB, CMC1, FGFBP2, S100A4, CYTL1, FCGR3A, LYAR, SPON2 
+	   MT2A, IGFBP7, TRDC, SPN, XCL2, PROM1, TRGC2, NPW, TMSB4X, IL2RB 
+Negative:  CD79A, IGHM, TCL1A, HLA-DRA, CD79B, VPREB3, CD74, MS4A1, IGHD, CD24 
+	   HLA-DQB1, HLA-DPA1, HLA-DRB5, HLA-DRB1, HLA-DPB1, IGKC, HLA-DQA1, IGLL5, IGLC2, CD72 
+	   SPIB, EBF1, MZB1, VPREB1, IGLC3, RP5-887A10.1, JCHAIN, POU2AF1, TSPAN13, IGLC5 
+PC_ 5 
+Positive:  RPS2, RPL37A, EEF1A1, NPR3, PRSS57, CYTL1, EGFL7, NPM1, FSCN1, KIAA0125 
+	   RPLP0, EEF1B2, RPL7A, MAP7, PTRF, CNRIP1, MYC, ALDH1A1, TSC22D1, SPINK2 
+	   PROM1, EBPL, SLC40A1, NGFRAP1, RPL14, CMBL, RP11-354E11.2, MYCT1, ANGPT1, AVP 
+Negative:  NKG7, GZMA, CCL5, CCL4, GNLY, KLRD1, KLRF1, GZMB, PRF1, GZMH 
+	   CMC1, FGFBP2, KLRB1, HOPX, FCGR3A, MKI67, XCL2, TRDC, CLIC3, NUSAP1 
+	   IL2RB, TOP2A, SPON2, TMSB4X, TUBA4A, CD160, C12orf75, KLRC1, AURKB, ACTB 
+g"
+"0","integrated <- RunUMAP(integrated, dims = 1:30, reduction.name = ""UMAP"")"
+"2","G3;15:44:45 UMAP embedding parameters a = 0.9922 b = 1.112
+g"
+"2","G3;15:44:45 Read 40000 rows and found 30 numeric columns
+g"
+"2","G3;15:44:45 Using Annoy for neighbor search, n_neighbors = 30
+g"
+"2","G3;15:44:45 Building Annoy index with metric = cosine, n_trees = 50
+g"
+"2","G3;0%   10   20   30   40   50   60   70   80   90   100%
+g"
+"2","G3;[----|----|----|----|----|----|----|----|----|----|
+g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;*g"
+"2","G3;|
+g"
+"2","G3;15:44:49 Writing NN index file to temp file C:\Users\myj23\AppData\Local\Temp\Rtmpu6jd2P\file64ac39d9232d
+g"
+"2","G3;15:44:49 Searching Annoy index using 1 thread, search_k = 3000
+g"
+"2","G3;15:45:00 Annoy recall = 100%
+g"
+"2","G3;15:45:01 Commencing smooth kNN distance calibration using 1 threadg"
+"2","G3; with target n_neighbors = 30
+g"
+"2","G3;15:45:04 Initializing from normalized Laplacian + noise (using RSpectra)
+g"
+"2","G3;15:45:07 Commencing optimization for 200 epochs, with 1860680 positive edges
+g"
+"2","G3;15:45:07 Using rng type: pcg
+g"
+"2","Using method 'umap'
+"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*"
+"2","*|
+"
+"2","G3;15:45:45 Optimization finished
+g"
+"0","integrated <- FindNeighbors(integrated, dims = 1:30)"
+"2","G3;Computing nearest neighbor graph
+g"
+"2","G3;Computing SNN
+g"
+"0","integrated <- FindClusters(integrated)"
+"1","Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+
+"
+"1","Number of nodes: 40000
+Number of edges: 1469873
+
+Running Louvain algorithm...
+"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****"
+"2","*****|
+"
+"1","Maximum modularity in 10 random starts: 0.9089
+Number of communities: 23
+Elapsed time: 7 seconds
+"
+"0","DimPlot(integrated, group.by = c(""orig.ident"", ""ident""))"

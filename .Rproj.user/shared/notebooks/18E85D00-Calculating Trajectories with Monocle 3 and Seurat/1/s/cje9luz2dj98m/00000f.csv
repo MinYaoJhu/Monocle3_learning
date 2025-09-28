@@ -1,0 +1,6 @@
+"0","# 1) Get cell IDs for partition 1 from Monocle"
+"0","cells_in_p1 <- names(partitions(cds)[partitions(cds) == 1])"
+"0",""
+"0","# Keep only cells present in the Seurat object too (safety)"
+"0","cells_in_p1 <- intersect(cells_in_p1, colnames(integrated))"
+"0","stopifnot(length(cells_in_p1) > 0)"

@@ -1,0 +1,6 @@
+"0","# 3) Build a fresh Monocle cds **from RNA assay** (ensures counts are present)"
+"0","DefaultAssay(integrated.sub) <- ""RNA"""
+"0","cds <- SeuratWrappers::as.cell_data_set(integrated.sub, assay = ""RNA"")"
+"0","summary(cds)"
+"1","[1] ""cell_data_set object of length 17369 with 0 metadata columns""
+"

@@ -1,0 +1,13 @@
+"0","# ------------------------------------------------"
+"0","# 1) Convert Seurat -> Monocle (once), get partitions"
+"0","# ------------------------------------------------"
+"0","cds <- as.cell_data_set(integrated)"
+"2","G2;H2;Warningh: Monocle 3 trajectories require cluster partitions, which Seurat does not calculate. Please run 'cluster_cells' on your cell_data_set objectg
+"
+"0","# computes kNN graph + clusters + partitions"
+"0","cds <- cluster_cells(cds) "
+"0",""
+"0","# Quick look at partitions (often correspond to distinct lineages)"
+"0","p1 <- plot_cells(cds, show_trajectory_graph = FALSE)"
+"0","p2 <- plot_cells(cds, color_cells_by = ""partition"", show_trajectory_graph = FALSE)"
+"0","p1 + p2"

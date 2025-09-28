@@ -1,0 +1,327 @@
+"0","# ---- Find anchors and integrate (RPCA-based integration) ----"
+"0","# RPCA is faster/more robust on large datasets than CCA in many cases."
+"0","anchors <- FindIntegrationAnchors("
+"0","  hcabm40k,"
+"0","  reference = c(1, 2),"
+"0","  reduction = ""rpca"","
+"0","  dims = 1:30"
+"0",")"
+"2","G3;Computing 2000 integration features
+g"
+"2","G3;Scaling features for provided objects
+g"
+"1","  |                                                  | 0 % ~calculating  "
+"1","  |+++++++                                           | 12% ~01s          "
+"1","  |+++++++++++++                                     | 25% ~01s          "
+"1","  |+++++++++++++++++++                               | 38% ~01s          "
+"1","  |+++++++++++++++++++++++++                         | 50% ~01s          "
+"1","  |++++++++++++++++++++++++++++++++                  | 62% ~01s          "
+"1","  |++++++++++++++++++++++++++++++++++++++            | 75% ~00s          "
+"1","  |++++++++++++++++++++++++++++++++++++++++++++      | 88% ~00s          "
+"1","  |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=02s  
+"
+"2","G3;Computing within dataset neighborhoods
+g"
+"1","  |                                                  | 0 % ~calculating  "
+"1","  |+++++++                                           | 12% ~07s          "
+"1","  |+++++++++++++                                     | 25% ~07s          "
+"1","  |+++++++++++++++++++                               | 38% ~05s          "
+"1","  |+++++++++++++++++++++++++                         | 50% ~04s          "
+"1","  |++++++++++++++++++++++++++++++++                  | 62% ~03s          "
+"1","  |++++++++++++++++++++++++++++++++++++++            | 75% ~02s          "
+"1","  |++++++++++++++++++++++++++++++++++++++++++++      | 88% ~01s          "
+"1","  |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=08s  
+"
+"2","G3;Finding anchors between all query and reference datasets
+g"
+"1","  |                                                  | 0 % ~calculating  "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1805 anchors
+g"
+"1","  |++++                                              | 8 % ~40s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1816 anchors
+g"
+"1","  |++++++++                                          | 15% ~36s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1416 anchors
+g"
+"1","  |++++++++++++                                      | 23% ~32s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 2366 anchors
+g"
+"1","  |++++++++++++++++                                  | 31% ~29s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1689 anchors
+g"
+"1","  |++++++++++++++++++++                              | 38% ~26s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 2401 anchors
+g"
+"1","  |++++++++++++++++++++++++                          | 46% ~23s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1648 anchors
+g"
+"1","  |+++++++++++++++++++++++++++                       | 54% ~19s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 2239 anchors
+g"
+"1","  |+++++++++++++++++++++++++++++++                   | 62% ~16s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1685 anchors
+g"
+"1","  |+++++++++++++++++++++++++++++++++++               | 69% ~13s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 2350 anchors
+g"
+"1","  |+++++++++++++++++++++++++++++++++++++++           | 77% ~10s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1797 anchors
+g"
+"1","  |+++++++++++++++++++++++++++++++++++++++++++       | 85% ~06s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 2143 anchors
+g"
+"1","  |+++++++++++++++++++++++++++++++++++++++++++++++   | 92% ~03s          "
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Projecting new data onto SVD
+g"
+"2","G3;Finding neighborhoods
+g"
+"2","G3;Finding anchors
+g"
+"2","G3;	Found 1555 anchors
+g"
+"1","  |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=42s  
+"
+"0","integrated <- IntegrateData(anchors, dims = 1:30)"
+"2","G3;Building integrated reference
+g"
+"2","G3;Merging dataset 2 into 1
+g"
+"2","G3;Extracting anchors for merged samples
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+***********"
+"2","********"
+"2","***************************"
+"2","****|
+"
+"2","G3;Integrating data
+g"
+"2","G2;H2;Warningh: Layer counts isn't present in the assay object; returning NULLg
+"
+"2","G2;H2;Warningh: Layer counts isn't present in the assay object; returning NULLg
+"
+"1","  |                                                  | 0 % ~calculating  "
+"2","G3;
+Integrating dataset 3 with reference dataset
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+******"
+"2","*********"
+"2","******"
+"2","**********************"
+"2","******"
+"2","*|
+"
+"2","G3;Integrating data
+g"
+"1","  |+++++++++                                         | 17% ~51s          "
+"2","G3;
+Integrating dataset 4 with reference dataset
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+*"
+"2","****"
+"2","************"
+"2","******"
+"2","**********"
+"2","********"
+"2","*********|
+"
+"2","G3;Integrating data
+g"
+"1","  |+++++++++++++++++                                 | 33% ~43s          "
+"2","G3;
+Integrating dataset 5 with reference dataset
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+***"
+"2","****"
+"2","*********"
+"2","************"
+"2","******"
+"2","************"
+"2","****|
+"
+"2","G3;Integrating data
+g"
+"1","  |+++++++++++++++++++++++++                         | 50% ~33s          "
+"2","G3;
+Integrating dataset 6 with reference dataset
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+*"
+"2","********"
+"2","********************"
+"2","*************"
+"2","********|
+"
+"2","G3;Integrating data
+g"
+"1","  |++++++++++++++++++++++++++++++++++                | 67% ~23s          "
+"2","G3;
+Integrating dataset 7 with reference dataset
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+*"
+"2","*****"
+"2","**********"
+"2","***"
+"2","***"
+"2","*************"
+"2","*****"
+"2","**********"
+"2","|
+G3;Integrating data
+g"
+"1","  |++++++++++++++++++++++++++++++++++++++++++        | 83% ~12s          "
+"2","G3;
+Integrating dataset 8 with reference dataset
+g"
+"2","G3;Finding integration vectors
+g"
+"2","G3;Finding integration vector weights
+g"
+"2","0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+***"
+"2","****"
+"2","***************"
+"2","***********"
+"2","****"
+"2","************"
+"2","*|
+"
+"2","G3;Integrating data
+g"
+"1","  |++++++++++++++++++++++++++++++++++++++++++++++++++| 100% elapsed=01m 10s
+"
+"2","G2;H2;Warningh: Layer counts isn't present in the assay object; returning NULLg
+"

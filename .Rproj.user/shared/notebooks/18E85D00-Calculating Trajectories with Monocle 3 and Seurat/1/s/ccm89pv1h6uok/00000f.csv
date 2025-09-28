@@ -1,0 +1,2 @@
+"0","# 2) Subset the Seurat object to the same cells"
+"0","integrated.sub <- subset(integrated, cells = cells_in_p1)"
