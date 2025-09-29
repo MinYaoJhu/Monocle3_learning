@@ -1,0 +1,4 @@
+"0","neurons_cds <- cds[,grepl(""neurons"", colData(cds)$assigned_cell_type, ignore.case=TRUE)]"
+"0","plot_cells(neurons_cds, color_cells_by=""partition"")"
+"2","G3;No trajectory to plot. Has learn_graph() been called yet?
+g"

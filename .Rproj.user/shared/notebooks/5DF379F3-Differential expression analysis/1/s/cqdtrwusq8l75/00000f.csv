@@ -28,10 +28,10 @@ Attaching package: ‘BiocGenerics’
 
     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
     colnames, dirname, do.call, duplicated, eval, evalq, Filter,
-    Find, get, grep, grepl, is.unsorted, lapply, Map, mapply, match,
-    mget, order, paste, pmax, pmax.int, pmin, pmin.int, Position,
-    rank, rbind, Reduce, rownames, sapply, saveRDS, table, tapply,
-    unique, unsplit, which.max, which.min
+    Find, get, grep, grepl, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, saveRDS,
+    table, tapply, unique, unsplit, which.max, which.min
 
 g"
 "2","G3;Welcome to Bioconductor
@@ -67,16 +67,17 @@ Attaching package: ‘MatrixGenerics’
     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
     colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
     colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
-    colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
-    colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
-    colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
-    colWeightedMeans, colWeightedMedians, colWeightedSds,
-    colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
-    rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
-    rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
-    rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
-    rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
-    rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
+    colMads, colMaxs, colMeans2, colMedians, colMins,
+    colOrderStats, colProds, colQuantiles, colRanges, colRanks,
+    colSdDiffs, colSds, colSums2, colTabulates, colVarDiffs,
+    colVars, colWeightedMads, colWeightedMeans,
+    colWeightedMedians, colWeightedSds, colWeightedVars, rowAlls,
+    rowAnyNAs, rowAnys, rowAvgsPerColSet, rowCollapse, rowCounts,
+    rowCummaxs, rowCummins, rowCumprods, rowCumsums, rowDiffs,
+    rowIQRDiffs, rowIQRs, rowLogSumExps, rowMadDiffs, rowMads,
+    rowMaxs, rowMeans2, rowMedians, rowMins, rowOrderStats,
+    rowProds, rowQuantiles, rowRanges, rowRanks, rowSdDiffs,
+    rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
     rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
     rowWeightedSds, rowWeightedVars
 
