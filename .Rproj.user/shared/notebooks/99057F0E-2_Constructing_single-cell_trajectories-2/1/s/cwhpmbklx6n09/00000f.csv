@@ -1,0 +1,183 @@
+"0","library(monocle3)"
+"2","G3;Loading required package: Biobase
+g"
+"2","G3;Loading required package: BiocGenerics
+g"
+"2","G3;Loading required package: generics
+g"
+"2","G3;
+Attaching package: ‘generics’
+
+g"
+"2","G3;The following objects are masked from ‘package:base’:
+
+    as.difftime, as.factor, as.ordered, intersect, is.element, setdiff, setequal,
+    union
+
+g"
+"2","G3;
+Attaching package: ‘BiocGenerics’
+
+g"
+"2","G3;The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+g"
+"2","G3;The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind, colnames, dirname,
+    do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl, is.unsorted,
+    lapply, Map, mapply, match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+    unsplit, which.max, which.min
+
+g"
+"2","G3;Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with 'browseVignettes()'. To cite
+    Bioconductor, see 'citation(""Biobase"")', and for packages 'citation(""pkgname"")'.
+
+g"
+"2","G3;Loading required package: SingleCellExperiment
+g"
+"2","G3;Loading required package: SummarizedExperiment
+g"
+"2","G3;Loading required package: MatrixGenerics
+g"
+"2","G3;Loading required package: matrixStats
+g"
+"2","G3;
+Attaching package: ‘matrixStats’
+
+g"
+"2","G3;The following objects are masked from ‘package:Biobase’:
+
+    anyMissing, rowMedians
+
+g"
+"2","G3;
+Attaching package: ‘MatrixGenerics’
+
+g"
+"2","G3;The following objects are masked from ‘package:matrixStats’:
+
+    colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse, colCounts, colCummaxs,
+    colCummins, colCumprods, colCumsums, colDiffs, colIQRDiffs, colIQRs,
+    colLogSumExps, colMadDiffs, colMads, colMaxs, colMeans2, colMedians, colMins,
+    colOrderStats, colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
+    colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads, colWeightedMeans,
+    colWeightedMedians, colWeightedSds, colWeightedVars, rowAlls, rowAnyNAs, rowAnys,
+    rowAvgsPerColSet, rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
+    rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps, rowMadDiffs, rowMads,
+    rowMaxs, rowMeans2, rowMedians, rowMins, rowOrderStats, rowProds, rowQuantiles,
+    rowRanges, rowRanks, rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs,
+    rowVars, rowWeightedMads, rowWeightedMeans, rowWeightedMedians, rowWeightedSds,
+    rowWeightedVars
+
+g"
+"2","G3;The following object is masked from ‘package:Biobase’:
+
+    rowMedians
+
+g"
+"2","G3;Loading required package: GenomicRanges
+g"
+"2","G3;Loading required package: stats4
+g"
+"2","G3;Loading required package: S4Vectors
+g"
+"2","G3;
+Attaching package: ‘S4Vectors’
+
+g"
+"2","G3;The following object is masked from ‘package:utils’:
+
+    findMatches
+
+g"
+"2","G3;The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+g"
+"2","G3;Loading required package: IRanges
+g"
+"2","G3;
+Attaching package: ‘IRanges’
+
+g"
+"2","G3;The following object is masked from ‘package:grDevices’:
+
+    windows
+
+g"
+"2","G3;Loading required package: Seqinfo
+g"
+"2","G3;
+Attaching package: ‘monocle3’
+
+g"
+"2","G3;The following objects are masked from ‘package:Biobase’:
+
+    exprs, fData, fData<-, pData, pData<-
+
+g"
+"0","# The tutorial shown below and on subsequent pages uses two additional packages:"
+"0","library(ggplot2)"
+"0","library(dplyr)"
+"2","G3;
+Attaching package: ‘dplyr’
+
+g"
+"2","G3;The following objects are masked from ‘package:GenomicRanges’:
+
+    intersect, setdiff, union
+
+g"
+"2","G3;The following object is masked from ‘package:Seqinfo’:
+
+    intersect
+
+g"
+"2","G3;The following objects are masked from ‘package:IRanges’:
+
+    collapse, desc, intersect, setdiff, slice, union
+
+g"
+"2","G3;The following objects are masked from ‘package:S4Vectors’:
+
+    first, intersect, rename, setdiff, setequal, union
+
+g"
+"2","G3;The following object is masked from ‘package:matrixStats’:
+
+    count
+
+g"
+"2","G3;The following object is masked from ‘package:Biobase’:
+
+    combine
+
+g"
+"2","G3;The following objects are masked from ‘package:BiocGenerics’:
+
+    combine, intersect, setdiff, setequal, union
+
+g"
+"2","G3;The following object is masked from ‘package:generics’:
+
+    explain
+
+g"
+"2","G3;The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+g"
+"2","G3;The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+g"
+"0","set.seed(2025)"

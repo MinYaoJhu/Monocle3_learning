@@ -1,0 +1,7 @@
+"0","time_batch_models <- fit_models(cds_subset,"
+"0","                                model_formula_str = ""~embryo.time + batch"","
+"0","                                expression_family=""negbinomial"")"
+"0","time_models <- fit_models(cds_subset,"
+"0","                          model_formula_str = ""~embryo.time"","
+"0","                          expression_family=""negbinomial"")"
+"0","compare_models(time_batch_models, time_models) %>% select(gene_short_name, q_value)"

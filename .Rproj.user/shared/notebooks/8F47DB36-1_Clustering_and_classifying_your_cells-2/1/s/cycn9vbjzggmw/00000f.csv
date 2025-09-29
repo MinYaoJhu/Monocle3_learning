@@ -1,3 +1,6 @@
-"0","ncol(cds_subset)"
+"0","# (optional sanity check)"
+"0","ncol(cds_subset); nrow(cds_subset)"
 "1","[1] 13858
+"
+"1","[1] 20271
 "

@@ -1,0 +1,3 @@
+"0","cell_group_df <- tibble::tibble(cell = row.names(colData(neurons_cds)),"
+"0","                                cell_group = partitions(cds)[colnames(neurons_cds)])"
+"0","head(cell_group_df)"

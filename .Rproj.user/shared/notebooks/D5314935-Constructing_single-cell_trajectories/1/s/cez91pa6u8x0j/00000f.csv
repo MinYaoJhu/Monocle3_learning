@@ -1,6 +1,0 @@
-"0","cds <- reduce_dimension(cds)"
-"2","G3;No preprocess_method specified, and aligned coordinates have been computed previously. Using preprocess_method = 'Aligned'
-g"
-"0","plot_cells(cds, label_groups_by_cluster=FALSE,  color_cells_by = ""cell.type"")"
-"2","G3;No trajectory to plot. Has learn_graph() been called yet?
-g"

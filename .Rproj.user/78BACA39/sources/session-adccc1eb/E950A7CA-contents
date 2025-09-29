@@ -274,11 +274,7 @@ saveRDS(cds_subset, "1_cds_subset.rds")
 ```
 
 ```{r}
-# Save everything Monocle needs (incl. ANN indices)
-monocle3::save_monocle_objects(
-  cds = cds,
-  dir = "1_cds"   # or path = "monocle_save" depending on your version
-)
+saveRDS(cds, "1_cds.rds")
 ```
 
 

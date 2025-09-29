@@ -1,4 +1,4 @@
-"0","cds_subset <- readRDS(""cds_subset.rds"")"
+"0","cds_subset <- readRDS(""1_cds_subset.rds"")"
 "0",""
 "0","# If needed, rebuild minimal state (safe on Windows: cores = 1)"
 "0","if (is.null(SingleCellExperiment::reducedDims(cds_subset)$UMAP)) {"

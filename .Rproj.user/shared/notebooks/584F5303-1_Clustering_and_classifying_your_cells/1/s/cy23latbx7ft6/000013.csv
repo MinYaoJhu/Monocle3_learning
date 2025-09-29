@@ -1,0 +1,19 @@
+"0","saveRDS(cds, ""1_cds.rds"")"
+"2","G3;Warning:
+g"
+"2","G3;  saveRDS(cds, ...) does not save annoy or hnsw nearest
+  neighbor indices, which you may need for future
+  analyses.
+g"
+"2","G3;
+g"
+"2","G3;We urge you to use the function
+
+    save_monocle_objects()
+
+  in order to save all of the information in the cds.
+  See the notes in the save_monocle_objects() help
+  documentation for additional information.
+g"
+"2","G3;However, we are running base::saveRDS() as you requested.
+g"

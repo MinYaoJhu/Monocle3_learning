@@ -1,6 +1,0 @@
-"0","top_specific_markers <- marker_test_res %>%"
-"0","                            filter(fraction_expressing >= 0.10) %>%"
-"0","                            group_by(cell_group) %>%"
-"0","                            top_n(1, pseudo_R2)"
-"0",""
-"0","top_specific_marker_ids <- unique(top_specific_markers %>% pull(gene_id))"

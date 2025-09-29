@@ -97,21 +97,24 @@ If you want one continuous trajectory across everything, try learn_graph(cds, us
 ```{r}
 cds <- cluster_cells(cds)
 plot_cells(cds)
+```
 
+```{r}
 cds <- learn_graph(cds)
+plot_cells(cds)
 ```
 
 
 ```{r}
-cds <- order_cells(cds)
+# cds <- order_cells(cds)
 ```
 
 ```{r}
 # Save everything Monocle needs (incl. ANN indices)
-monocle3::save_monocle_objects(
-  cds = cds,
-  dir = "3_cds_after_ordering_monocle_save"   # or path = "monocle_save" depending on your version
-)
+# monocle3::save_monocle_objects(
+#   cds = cds,
+#   dir = "3_cds_after_ordering_monocle_save"   # or path = "monocle_save" depending on your version
+# )
 ```
 
 ```{r}

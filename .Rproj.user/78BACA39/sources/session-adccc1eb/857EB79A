@@ -3,24 +3,24 @@
     "path": "D:/Oldroyd_lab/GitHub/Monocle3_learning/3_Differential_expression_analysis-2.Rmd",
     "project_path": "3_Differential_expression_analysis-2.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3413050424",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1759162564663.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "194,0",
-        "scrollLine": "176"
+        "cursorPosition": "108,25",
+        "scrollLine": "105"
     },
     "folds": "",
-    "lastKnownWriteTime": 1759163026,
+    "lastKnownWriteTime": 1759178177,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1759163166964,
+    "last_content_update": 1759179242430,
     "read_only": false,
     "read_only_alternatives": []
 }

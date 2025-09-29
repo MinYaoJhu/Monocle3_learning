@@ -1,7 +1,0 @@
-"0","colData(cds)[colnames(cds_subset),]$assigned_cell_type <- colData(cds_subset)$assigned_cell_type"
-"0","cds <- cds[,colData(cds)$assigned_cell_type != ""Failed QC"" | is.na(colData(cds)$assigned_cell_type )]"
-"0","plot_cells(cds, group_cells_by=""partition"", "
-"0","           color_cells_by=""assigned_cell_type"", "
-"0","           labels_per_group=5)"
-"2","G3;No trajectory to plot. Has learn_graph() been called yet?
-g"

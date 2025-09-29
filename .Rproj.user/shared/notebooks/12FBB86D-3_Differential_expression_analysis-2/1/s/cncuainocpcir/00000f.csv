@@ -1,0 +1,31 @@
+"0","# Save everything Monocle needs (incl. ANN indices)"
+"0","monocle3::save_monocle_objects("
+"0","  cds = cds,"
+"0","  dir = ""3_cds_after_ordering_monocle_save""   # or path = ""monocle_save"" depending on your version"
+"0",")"
+"2","G3;Info: save_monocle_objects: saving monocle object files:
+g"
+"2","G3;  cds_object.rds  (full_cds:  RDS from cell_data_set)
+g"
+"2","G3;  rdd_umap_transform_model_umap.idx  (UMAP:  UMAP_NN_index from reduce_dimension)
+g"
+"2","G3;Info: checking for monocle object files...
+g"
+"2","G3;  D:\Oldroyd_lab\GitHub\Monocle3_learning\3_cds_after_ordering_monocle_save/cds_object.rds...g"
+"2","G3;OK
+g"
+"2","G3;  D:\Oldroyd_lab\GitHub\Monocle3_learning\3_cds_after_ordering_monocle_save/rdd_umap_transform_model_umap.idx...g"
+"2","G3;OK
+g"
+"2","G3;Info: all expected monocle object files exist.
+g"
+"2","G3;Info: making a tar file of the output directory...
+g"
+"2","G2;H2;Warningh in tar(tarfile = archive_name, files = directory_path, compression = archive_control[[""archive_compression""]]) :
+  storing paths of more than 100 bytes is not portable:
+  ‘D:\Oldroyd_lab\GitHub\Monocle3_learning\3_cds_after_ordering_monocle_save/rdd_umap_transform_model_umap.idx’g
+"
+"2","G3;  made tar archive file ""D:\Oldroyd_lab\GitHub\Monocle3_learning\3_cds_after_ordering_monocle_save.tar""
+g"
+"2","G3;  Done.
+g"

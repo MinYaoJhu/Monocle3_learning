@@ -1,0 +1,24 @@
+"0","gene_fits <- fit_models(cds_subset, model_formula_str = ""~embryo.time"")"
+"0","summary(gene_fits)"
+"1","      id            gene_short_name    num_cells_expressed   gene_id         
+ Length:6           Length:6           Min.   :  51.0      Length:6          
+ Class :character   Class :character   1st Qu.: 172.8      Class :character  
+ Mode  :character   Mode  :character   Median : 582.5      Mode  :character  
+                                       Mean   : 681.7                        
+                                       3rd Qu.:1060.5                        
+                                       Max.   :1618.0                        
+ model.Length  model.Class  model.Mode
+ 26        speedglm  list             
+ 26        speedglm  list             
+ 26        speedglm  list             
+ 26        speedglm  list             
+ 26        speedglm  list             
+ 26        speedglm  list             
+ model_summary.Length  model_summary.Class  model_summary.Mode    status         
+ 21                summary.speedglm  list                      Length:6          
+ 21                summary.speedglm  list                      Class :character  
+ 21                summary.speedglm  list                      Mode  :character  
+ 21                summary.speedglm  list                                        
+ 21                summary.speedglm  list                                        
+ 21                summary.speedglm  list                                        
+"

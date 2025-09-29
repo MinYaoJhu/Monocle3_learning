@@ -1,5 +1,0 @@
-"0","# Save everything Monocle needs (incl. ANN indices)"
-"0","monocle3::save_monocle_objects("
-"0","  cds = cds,"
-"0","  dir = ""1_cds""   # or path = ""monocle_save"" depending on your version"
-"0",")"

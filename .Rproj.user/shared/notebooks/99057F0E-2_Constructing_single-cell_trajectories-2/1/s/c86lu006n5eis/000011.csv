@@ -1,0 +1,9 @@
+"0","plot_cells(cds,"
+"0","           color_cells_by = ""pseudotime"","
+"0","           label_cell_groups=FALSE,"
+"0","           label_leaves=FALSE,"
+"0","           label_branch_points=FALSE,"
+"0","           graph_label_size=1.5)"
+"2","G1;H1;Errorh in value[[3L]](cond) : 
+  No pseudotime for UMAP calculated. Please run order_cells with reduction_method = UMAP before attempting to color by pseudotime.
+g"

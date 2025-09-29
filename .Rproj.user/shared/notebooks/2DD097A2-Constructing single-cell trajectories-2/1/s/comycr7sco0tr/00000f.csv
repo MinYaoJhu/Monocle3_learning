@@ -1,20 +1,0 @@
-"0","cds_3d <- reduce_dimension(cds, max_components = 3)"
-"2","G3;No preprocess_method specified, and aligned coordinates have been computed previously. Using preprocess_method = 'Aligned'
-g"
-"0","cds_3d <- cluster_cells(cds_3d)"
-"0","cds_3d <- learn_graph(cds_3d)"
-"1","  |                                                                            |                                                                    |   0%"
-"1","  |                                                                            |====================================================================| 100%"
-"1","
-"
-"0","cds_3d <- order_cells(cds_3d, root_pr_nodes=get_earliest_principal_node(cds))"
-"0",""
-"0","cds_3d_plot_obj <- plot_cells_3d(cds_3d, color_cells_by=""partition"")"
-"2","G3;Registered S3 method overwritten by 'data.table':
-  method           from
-  print.data.table     
-g"
-"2","G3;Registered S3 method overwritten by 'htmlwidgets':
-  method           from         
-  print.htmlwidget tools:rstudio
-g"

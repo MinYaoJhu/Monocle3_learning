@@ -1,24 +1,0 @@
-"0","expression_matrix <- readRDS(url(""https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/packer_embryo_expression.rds""))"
-"0","cell_metadata <- readRDS(url(""https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/packer_embryo_colData.rds""))"
-"0","gene_annotation <- readRDS(url(""https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/packer_embryo_rowData.rds""))"
-"0","cds <- new_cell_data_set(expression_matrix,"
-"0","                         cell_metadata = cell_metadata,"
-"0","                         gene_metadata = gene_annotation)"
-"0","cds <- preprocess_cds(cds, num_dim = 50)"
-"0","cds <- align_cds(cds, alignment_group = ""batch"", residual_model_formula_str = ""~ bg.300.loading + bg.400.loading + bg.500.1.loading + bg.500.2.loading + bg.r17.loading + bg.b01.loading + bg.b02.loading"")"
-"2","G3;Aligning cells from different batches using Batchelor.
-Please remember to cite:
-	 Haghverdi L, Lun ATL, Morgan MD, Marioni JC (2018). 'Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors.' Nat. Biotechnol., 36(5), 421-427. doi: 10.1038/nbt.4091
-g"
-"0","cds <- reduce_dimension(cds)"
-"2","G3;No preprocess_method specified, and aligned coordinates have been computed previously. Using preprocess_method = 'Aligned'
-g"
-"0","cds <- cluster_cells(cds)"
-"0","cds <- learn_graph(cds)"
-"1","  |                                                                         |                                                                 |   0%"
-"1","  |                                                                         |=================================================================| 100%"
-"1","
-"
-"1","  |                                                                         |                                                                 |   0%  |                                                                       "
-"1","  |=================================================================| 100%
-"
