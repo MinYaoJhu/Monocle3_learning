@@ -135,4 +135,137 @@ As we can see, all of the genes' likelihood ratio tests are significant, indicat
 
 # Choosing a distribution for modeling gene expression
 
+Monocle uses generalized linear models to capture how a gene's expression depends on each variable in the experiment. These models require you to specify a distribution that describes gene expression values. Most studies that use this approach to analyze their gene expression data use the negative binomial distribution, which is often appropriate for sequencing read or UMI count data. The negative binomial is at the core of many packages for RNA-seq analysis, such as DESeq2.
+
+Monocle's fit_models() supports the negative binomial distribution and several others listed in the table below. The default is the "quasipoisson", which is very similar to the negative binomial. Quasipoisson is a a bit less accurate than the negative binomial but much faster to fit, making it well suited to datasets with thousands of cells.
+
+There are several allowed values for expression_family:
+
+Likelihood based analysis and quasipoisson
+The quasi-poisson distribution doesn't have a real likelihood function, so some of Monocle's methods won't work with it. Several of the columns in results tables from evaluate_fits() and compare_models() will be NA.
+
+# Graph-autocorrelation analysis for comparing clusters
+
+In the L2 worm data, we identified a number of clusters that were very distinct as neurons:
+
+```{r}
+# reload and reprocess the data as described in the 'Clustering and classifying your cells' section
+expression_matrix <- readRDS(url("https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/cao_l2_expression.rds"))
+cell_metadata <- readRDS(url("https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/cao_l2_colData.rds"))
+gene_annotation <- readRDS(url("https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/cao_l2_rowData.rds"))
+
+# Make the CDS object
+cds <- new_cell_data_set(expression_matrix,
+                         cell_metadata = cell_metadata,
+                         gene_metadata = gene_annotation)
+cds <- preprocess_cds(cds, num_dim = 100)
+cds <- reduce_dimension(cds)
+cds <- cluster_cells(cds, resolution=1e-5)
+
+colData(cds)$assigned_cell_type <- as.character(partitions(cds))
+colData(cds)$assigned_cell_type <- dplyr::recode(colData(cds)$assigned_cell_type,
+                                                 "1"="Body wall muscle",
+                                                 "2"="Germline",
+                                                 "3"="Motor neurons",
+                                                 "4"="Seam cells",
+                                                 "5"="Sex myoblasts",
+                                                 "6"="Socket cells",
+                                                 "7"="Marginal_cell",
+                                                 "8"="Coelomocyte",
+                                                 "9"="Am/PH sheath cells",
+                                                 "10"="Ciliated neurons",
+                                                 "11"="Intestinal/rectal muscle",
+                                                 "12"="Excretory gland",
+                                                 "13"="Chemosensory neurons",
+                                                 "14"="Interneurons",
+                                                 "15"="Unclassified eurons",
+                                                 "16"="Ciliated neurons",
+                                                 "17"="Pharyngeal gland cells",
+                                                 "18"="Unclassified neurons",
+                                                 "19"="Chemosensory neurons",
+                                                 "20"="Ciliated neurons",
+                                                 "21"="Ciliated neurons",
+                                                 "22"="Inner labial neuron",
+                                                 "23"="Ciliated neurons",
+                                                 "24"="Ciliated neurons",
+                                                 "25"="Ciliated neurons",
+                                                 "26"="Hypodermal cells",
+                                                 "27"="Mesodermal cells",
+                                                 "28"="Motor neurons",
+                                                 "29"="Pharyngeal gland cells",
+                                                 "30"="Ciliated neurons",
+                                                 "31"="Excretory cells",
+                                                 "32"="Amphid neuron",
+                                                 "33"="Pharyngeal muscle")
+```
+
+```{r}
+plot_cells(cds, color_cells_by="partition")
+```
+
+
+Subset just the neurons:
+
+```{r}
+neurons_cds <- cds[,grepl("neurons", colData(cds)$assigned_cell_type, ignore.case=TRUE)]
+plot_cells(neurons_cds, color_cells_by="partition")
+```
+
+There are many subtypes of neurons, so perhaps the different neuron clusters correspond to different subtypes. To investigate which genes are expressed differentially across the clusters, we could use the regression analysis tools discussed above. However, Monocle provides an alternative way of finding genes that vary between groups of cells in UMAP space. The function graph_test() uses a statistic from spatial autocorrelation analysis called Moran's I, which Cao & Spielmann et al showed to be effective in finding genes that vary in single-cell RNA-seq datasets.
+
+You can run graph_test() like this:
+
+```{r}
+pr_graph_test_res <- graph_test(neurons_cds, neighbor_graph="knn", cores=1)
+pr_deg_ids <- row.names(subset(pr_graph_test_res, q_value < 0.05))
+```
+
+The data frame pr_graph_test_res has the Moran's I test results for each gene in the cell_data_set. If you'd like to rank the genes by effect size, sort this table by the morans_Icolumn, which ranges from -1 to +1. A value of 0 indicates no effect, while +1 indicates perfect positive autocorrelation and suggests that nearby cells have very similar values of a gene's expression. Significant values much less than zero are generally rare.
+
+Positive values indicate a gene is expressed in a focal region of the UMAP space (e.g. specific to one or more clusters). But how do we associate genes with clusters? The next section explains how to collect genes into modules that have similar patterns of expression and associate them with clusters.
+
+# Finding modules of co-regulated genes
+
+Once you have a set of genes that vary in some interesting way across the clusters, Monocle provides a means of grouping them into modules. You can call find_gene_modules(), which essentially runs UMAP on the genes (as opposed to the cells) and then groups them into modules using Louvain community analysis:
+
+```{r}
+gene_module_df <- find_gene_modules(neurons_cds[pr_deg_ids,], resolution=1e-2)
+head(gene_module_df)
+```
+
+The data frame gene_module_df contains a row for each gene and identifies the module it belongs to. To see which modules are expressed in which clusters or partitions you can use two different approaches for visualization. The first is just to make a simple table that shows the aggregate expression of all genes in each module across all the clusters. Monocle provides a simple utility function called aggregate_gene_expression for this purpose:
+
+```{r}
+cell_group_df <- tibble::tibble(cell = row.names(colData(neurons_cds)),
+                                cell_group = partitions(cds)[colnames(neurons_cds)])
+head(cell_group_df)
+
+agg_mat <- aggregate_gene_expression(neurons_cds, gene_module_df, cell_group_df)
+head(agg_mat)
+
+row.names(agg_mat) <- stringr::str_c("Module ", row.names(agg_mat))
+colnames(agg_mat) <- stringr::str_c("Partition ", colnames(agg_mat))
+head(agg_mat)
+
+pheatmap::pheatmap(
+  agg_mat,
+  cluster_rows = TRUE,
+  cluster_cols = TRUE,
+  scale = "column",
+  clustering_method = "ward.D2",
+  fontsize = 6
+)
+```
+
+Some modules are highly specific to certain partitions of cells, while others are shared across multiple partitions. Note that aggregate_gene_expression can work with arbitrary groupings of cells and genes. You're not limited to looking at modules from find_gene_modules(), clusters(), and partitions().
+
+The second way of looking at modules and their expression is to pass gene_module_df directly to plot_cells(). If there are many modules, it can be hard to see where each one is expressed, so we'll just look at a subset of them:
+
+```{r}
+plot_cells(neurons_cds, 
+           genes=gene_module_df %>% filter(module %in% c(8, 28, 33, 37)),
+           group_cells_by="partition",
+           color_cells_by="partition",
+           show_trajectory_graph=FALSE)
+```
 
