@@ -32,7 +32,7 @@ set.seed(2025)
 option2:
 
 ```{r}
-cds <- load_monocle_objects("cds_after_ordering_monocle_save")
+cds <- load_monocle_objects("2_cds_after_ordering_monocle_save")
 ```
 
 ```{r}

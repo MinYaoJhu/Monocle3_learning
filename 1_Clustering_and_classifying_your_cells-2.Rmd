@@ -2,7 +2,9 @@
 title: "1_Clustering_and_classifying_your_cells-2"
 author: "Min-Yao"
 date: "2025-09-29"
-output: html_document
+output: 
+  html_document: 
+    keep_md: true
 ---
 
 ```{r}
@@ -15,8 +17,19 @@ set.seed(2025)
 ```
 
 ```{r}
+cds <- readRDS("1_cds.rds")
+
+# If needed, rebuild minimal state (safe on Windows: cores = 1)
+if (is.null(SingleCellExperiment::reducedDims(cds)$UMAP)) {
+  cds <- preprocess_cds(cds, num_dim = 50)
+  cds <- reduce_dimension(cds, umap.fast_sgd = TRUE, cores = 1)
+  cds <- cluster_cells(cds)
+}
+```
+
+
+```{r}
 cds_subset <- readRDS("1_cds_subset.rds")
-cds <- load_monocle_objects("1_cds")
 
 # If needed, rebuild minimal state (safe on Windows: cores = 1)
 if (is.null(SingleCellExperiment::reducedDims(cds_subset)$UMAP)) {
@@ -29,13 +42,14 @@ if (is.null(SingleCellExperiment::reducedDims(cds_subset)$UMAP)) {
 
 ```{r}
 # (optional sanity check)
-ncol(cds_subset); nrow(cds_subset)
+ncol(cds); nrow(cds)
 ```
 
 Now we have a smaller cell_data_set object that contains just the cells from the partition we'd like to drill into. We can use graph_test() to identify genes that are differentially expressed in different subsets of cells from this partition:
 
 ```{r}
-ncol(cds_subset)
+# (optional sanity check)
+ncol(cds_subset); nrow(cds_subset)
 ```
 
 ```{r}

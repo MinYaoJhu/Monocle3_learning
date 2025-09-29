@@ -120,7 +120,7 @@ The black lines show the structure of the graph. Note that the graph is not full
 Now that we have a sense of where the early cells fall, we can call order_cells(), which will calculate where each cell falls in pseudotime. In order to do so order_cells()needs you to specify the root nodes of the trajectory graph. If you don't provide them as an argument, it will launch a graphical user interface for selecting one or more root nodes.
 
 ```{r}
-# cds <- order_cells(cds)
+cds <- order_cells(cds)
 ```
 
 In the above example, we just chose one location, but you could pick as many as you want. Plotting the cells and coloring them by pseudotime shows how they were ordered:
@@ -135,14 +135,14 @@ In the above example, we just chose one location, but you could pick as many as 
 ```
 
 ```{r}
-saveRDS(cds, "cds_after_ordering.rds")
+# saveRDS(cds, "2_cds_after_ordering.rds")
 ```
 
 ```{r}
 # Save everything Monocle needs (incl. ANN indices)
-monocle3::save_monocle_objects(
-  cds = cds,
-  dir = "cds_after_ordering_monocle_save"   # or path = "monocle_save" depending on your version
-)
+# monocle3::save_monocle_objects(
+#   cds = cds,
+#   dir = "2_cds_after_ordering_monocle_save"   # or path = "monocle_save" depending on your version
+# )
 ```
 
