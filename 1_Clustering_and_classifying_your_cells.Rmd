@@ -1,13 +1,11 @@
 ---
-title: "Getting started with Monocle 3"
+title: "1_Clustering and classifying your cells"
 author: "Min-Yao"
-date: "2025-09-27"
+date: "2025-09-29"
 output: 
   html_document: 
     keep_md: true
 ---
-
-# Load Monocle 3
 
 ```{r}
 library(monocle3)
@@ -18,28 +16,23 @@ library(dplyr)
 set.seed(2025)
 ```
 
-# The cell_data_set class
+Single-cell experiments are often performed on tissues containing many cell types. Monocle 3 provides a simple set of functions you can use to group your cells according to their gene expression profiles into clusters. Often cells form clusters that correspond to one cell type or a set of highly related cell types. Monocle 3 uses techniques to do this that are widely accepted in single-cell RNA-seq analysis and similar to the approaches used by Seurat, scanpy, and other tools.
 
-Monocle holds single-cell expression data in objects of the cell_data_set class. The class is derived from the Bioconductor SingleCellExperiment class, which provides a common interface familiar to those who have analyzed other single-cell experiments with Bioconductor. The class requires three input files:
+In this section, you will learn how to cluster cells using Monocle 3. We will demonstrate the main functions used for clustering with the C. elegans data from Cao & Packer et al. This study described how to do single-cell RNA-seq with combinatorial indexing in a protocol called "sci-RNA-seq". Cao & Packer et al. used sci-RNA-seq to produce the first single-cell RNA-seq analysis of a whole animal, so there are many cell types represented in the data. You can learn more about the dataset and see how the authors performed the original analysis at the UW Genome Sciences RNA Atlas of the Worm site.
 
-expression_matrix, a numeric matrix of expression values, where rows are genes, and columns are cells
-cell_metadata, a data frame, where rows are cells, and columns are cell attributes (such as cell type, culture condition, day captured, etc.)
-gene_metadata, an data frame, where rows are features (e.g. genes), and columns are gene attributes, such as biotype, gc content, etc.
-
-## Generate a cell_data_set
+You can load the data into Monocle 3 like this:
 
 ```{r}
-# Load the data
 expression_matrix <- readRDS(url("https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/cao_l2_expression.rds"))
 cell_metadata <- readRDS(url("https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/cao_l2_colData.rds"))
 gene_annotation <- readRDS(url("https://depts.washington.edu:/trapnell-lab/software/monocle3/celegans/data/cao_l2_rowData.rds"))
 
-
-# Make the CDS object
 cds <- new_cell_data_set(expression_matrix,
                          cell_metadata = cell_metadata,
                          gene_metadata = gene_annotation)
 ```
+
+
 
 # Clustering and classifying your cells
 
@@ -379,4 +372,3 @@ generate_garnett_marker_file(garnett_markers, file="./marker_file.txt")
 The marker files produced by generate_garnett_marker_file() are just a starting point for classifying your cells with Garnett. You may want to edit this file to add or remove markers based on literature or other information. You also should consider defining subtypes of cells, which can greatly increase the usefulness and accuracy of Garnett. For example, the L2 data contains many different types of neurons. Making a "Neuron" cell type in the file above and then using the subtype of keyword to organize the various subtypes of neurons will make Garnett more able to recognize them and distinguish them from non-neuronal cell types. When two or more of your cell types share most of their top markers in plot_genes_by_group(), consider defining a broader cell type definition of which they are both subtypes. You might also want to define markers for the various subtypes of neurons by subsetting the cds object above and running top_markers() just on them. See the Garnett documentation for more on how you can enrich your marker files.
 
 When you're ready run Garnett, load the package:
-
