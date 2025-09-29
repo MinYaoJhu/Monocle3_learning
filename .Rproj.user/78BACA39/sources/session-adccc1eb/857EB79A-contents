@@ -2,7 +2,9 @@
 title: "Differential expression analysis-2"
 author: "Min-Yao"
 date: "2025-09-29"
-output: html_document
+output: 
+  html_document: 
+    keep_md: true
 ---
 
 ```{r}
@@ -182,7 +184,22 @@ Monocle offers another plotting function that can sometimes give a clearer view 
 AFD_genes <- c("gcy-8", "dac-1", "oig-8")
 AFD_lineage_cds <- cds[rowData(cds)$gene_short_name %in% AFD_genes,
                        colData(cds)$cell.type %in% c("AFD")]
-AFD_lineage_cds <- order_cells(AFD_lineage_cds)
+```
+
+```{r}
+# AFD_lineage_cds <- order_cells(AFD_lineage_cds)
+```
+
+```{r}
+# Save everything Monocle needs (incl. ANN indices)
+# monocle3::save_monocle_objects(
+#   cds = AFD_lineage_cds,
+#   dir = "3_AFD_lineage_cds_after_ordering_monocle_save"   # or path = "monocle_save" depending on your version
+# )
+```
+
+```{r}
+AFD_lineage_cds <- load_monocle_objects("3_AFD_lineage_cds_after_ordering_monocle_save")
 ```
 
 The function plot_genes_in_pseudotime() takes a small set of genes and shows you their dynamics as a function of pseudotime:

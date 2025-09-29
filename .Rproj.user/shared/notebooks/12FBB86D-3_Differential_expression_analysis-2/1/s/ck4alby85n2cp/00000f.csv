@@ -1,0 +1,7 @@
+"0","AFD_genes <- c(""gcy-8"", ""dac-1"", ""oig-8"")"
+"0","AFD_lineage_cds <- cds[rowData(cds)$gene_short_name %in% AFD_genes,"
+"0","                       colData(cds)$cell.type %in% c(""AFD"")]"
+"0","AFD_lineage_cds <- order_cells(AFD_lineage_cds)"
+"2","G3;
+Listening on http://127.0.0.1:3427
+g"

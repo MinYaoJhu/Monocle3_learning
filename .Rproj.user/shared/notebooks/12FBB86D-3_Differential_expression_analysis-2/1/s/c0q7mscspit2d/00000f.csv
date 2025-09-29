@@ -1,0 +1,6 @@
+"0","cell_group_df <- tibble::tibble(cell=row.names(colData(cds)), "
+"0","                                cell_group=colData(cds)$cell.type)"
+"0","agg_mat <- aggregate_gene_expression(cds, gene_module_df, cell_group_df)"
+"0","row.names(agg_mat) <- stringr::str_c(""Module "", row.names(agg_mat))"
+"0","pheatmap::pheatmap(agg_mat,"
+"0","                   scale=""column"", clustering_method=""ward.D2"")"
