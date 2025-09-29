@@ -1,0 +1,17 @@
+"0","colData(cds)[colnames(cds_subset),]$assigned_cell_type <- colData(cds_subset)$assigned_cell_type"
+"2","G1;H1;Errorh: object 'cds' not found
+Error during wrapup: not that many frames on the stack
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+g"
+"0","cds <- cds[,colData(cds)$assigned_cell_type != ""Failed QC"" | is.na(colData(cds)$assigned_cell_type )]"
+"2","G1;H1;Errorh: object 'cds' not found
+Error during wrapup: not that many frames on the stack
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+g"
+"0","plot_cells(cds, group_cells_by=""partition"", "
+"0","           color_cells_by=""assigned_cell_type"", "
+"0","           labels_per_group=5)"
+"2","G1;H1;Errorh: object 'cds' not found
+Error during wrapup: not that many frames on the stack
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+g"

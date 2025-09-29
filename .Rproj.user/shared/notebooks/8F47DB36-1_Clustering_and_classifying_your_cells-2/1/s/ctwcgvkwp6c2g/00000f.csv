@@ -1,0 +1,8 @@
+"0","cds_subset <- readRDS(""cds_subset.rds"")"
+"0",""
+"0","# If needed, rebuild minimal state (safe on Windows: cores = 1)"
+"0","if (is.null(SingleCellExperiment::reducedDims(cds_subset)$UMAP)) {"
+"0","  cds_subset <- preprocess_cds(cds_subset, num_dim = 50)"
+"0","  cds_subset <- reduce_dimension(cds_subset, umap.fast_sgd = TRUE, cores = 1)"
+"0","  cds_subset <- cluster_cells(cds_subset)"
+"0","}"

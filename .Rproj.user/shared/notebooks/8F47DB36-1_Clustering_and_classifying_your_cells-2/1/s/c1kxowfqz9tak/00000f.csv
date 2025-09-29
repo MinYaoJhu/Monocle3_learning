@@ -1,0 +1,3 @@
+"0","plot_cells(cds_subset, genes=gene_module_df, "
+"0","           show_trajectory_graph=FALSE, "
+"0","           label_cell_groups=FALSE)"

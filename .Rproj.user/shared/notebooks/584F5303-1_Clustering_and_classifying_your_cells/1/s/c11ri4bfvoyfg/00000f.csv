@@ -1,0 +1,29 @@
+"0","colData(cds)"
+"1","DataFrame with 42035 rows and 5 columns
+                           plate cao_cluster          cao_cell_type             cao_tissue
+                        <factor>    <factor>            <character>            <character>
+cele-001-001.CATGACTCAA      001          20   Unclassified neurons                Neurons
+cele-001-001.AAGACGGCCA      001          6                Germline                  Gonad
+cele-001-001.GCCAACGCCA      001          13 Intestinal/rectal mu.. Intestinal/rectal mu..
+cele-001-001.ATAGGAGTAC      001          27      Vulval precursors                     NA
+cele-001-001.CTCGTCTAGG      001          2            Coelomocytes           Coelomocytes
+...                          ...         ...                    ...                    ...
+cele-010-092.CGTATTGAGA      010          17                     NA                     NA
+cele-010-092.AGGTCTATGG      010          27      Vulval precursors                     NA
+cele-010-092.TGCGAAGATC      010          9        Body wall muscle       Body wall muscle
+cele-010-092.GTATTAAGTT      010          26              Failed QC              Failed QC
+cele-010-092.GAAGTCCGTC      010          16      GABAergic neurons                Neurons
+                        Size_Factor
+                          <numeric>
+cele-001-001.CATGACTCAA    0.236833
+cele-001-001.AAGACGGCCA    1.299291
+cele-001-001.GCCAACGCCA    1.368367
+cele-001-001.ATAGGAGTAC    0.324000
+cele-001-001.CTCGTCTAGG    0.781219
+...                             ...
+cele-010-092.CGTATTGAGA    2.902847
+cele-010-092.AGGTCTATGG    5.412617
+cele-010-092.TGCGAAGATC    3.320593
+cele-010-092.GTATTAAGTT    0.230254
+cele-010-092.GAAGTCCGTC    0.427615
+"

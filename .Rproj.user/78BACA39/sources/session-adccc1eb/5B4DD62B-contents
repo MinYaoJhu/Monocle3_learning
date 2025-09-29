@@ -30,10 +30,77 @@ cds <- new_cell_data_set(expression_matrix,
 cds <- preprocess_cds(cds, num_dim = 50)
 cds <- align_cds(cds, alignment_group = "batch", residual_model_formula_str = "~ bg.300.loading + bg.400.loading + bg.500.1.loading + bg.500.2.loading + bg.r17.loading + bg.b01.loading + bg.b02.loading")
 cds <- reduce_dimension(cds)
-cds <- cluster_cells(cds)
-cds <- learn_graph(cds)
-
+plot_cells(cds)
 ```
+
+> Arguments
+
+cds	
+The cell_data_set upon which to perform clustering.
+
+reduction_method	
+The dimensionality reduction method upon which to base clustering. Options are "UMAP", "tSNE", "PCA" and "LSI".
+
+k	
+Integer number of nearest neighbors to use when creating the k nearest neighbor graph for Louvain/Leiden clustering. k is related to the resolution of the clustering result, a bigger k will result in lower resolution and vice versa. Default is 20.
+
+cluster_method	
+String indicating the clustering method to use. Options are "louvain" or "leiden". Default is "leiden". Resolution parameter is ignored if set to "louvain".
+
+num_iter	
+Integer number of iterations used for Louvain/Leiden clustering. The clustering result giving the largest modularity score will be used as the final clustering result. Default is 1. Note that if num_iter is greater than 1, the random_seed argument will be ignored for the louvain method.
+
+partition_qval	
+Numeric, the q-value cutoff to determine when to partition. Default is 0.05.
+
+weight	
+A logical argument to determine whether or not to use Jaccard coefficients for two nearest neighbors (based on the overlapping of their kNN) as the weight used for Louvain clustering. Default is FALSE.
+
+resolution	
+Parameter that controls the resolution of clustering. If NULL (Default), the parameter is determined automatically.
+
+random_seed	
+The seed used by the random number generator in louvain-igraph package. This argument will be ignored if num_iter is larger than 1.
+
+verbose	
+A logic flag to determine whether or not we should print the run details.
+
+nn_control	
+An optional list of parameters used to make the nearest neighbor index. See the set_nn_control help for detailed information. The default metric is cosine for reduction_methods PCA, LSI, and Aligned, and is euclidean for reduction_methods tSNE and UMAP.
+
+> Clusters & Partitions
+
+Clusters = fine-grained communities of cells found by Leiden/Louvain on the k-NN graph (think “putatively similar cell types/subtypes”).
+
+Partitions = coarser, well-separated groups of cells (often distinct lineages/components). Monocle learns a separate trajectory graph per partition.
+
+What that means in practice
+
+How they’re made
+
+Clusters: community detection on the cell k-NN graph built from your chosen embedding (UMAP by default). Tuned mainly by k and resolution.
+
+Partitions: Monocle applies a PAGA-style connectivity test to decide which clusters belong to the same “component”. Components become partitions.
+
+How to use them
+
+Use clusters to: find marker genes, annotate cell types, compare subpopulations.
+
+Use partitions to: define separate trajectories. learn_graph() fits a principal graph within each partition. When you order_cells(), you need at least one root per partition, otherwise cells in root-less partitions get infinite pseudotime (shown in grey).
+
+Interpretation tips
+
+If you see many partitions unexpectedly, that can indicate batch effects or overly sparse connectivity; consider align_cds() or adjusting k.
+
+If you want one continuous trajectory across everything, try learn_graph(cds, use_partition = FALSE) (but only if biologically sensible).
+
+```{r}
+cds <- cluster_cells(cds)
+plot_cells(cds)
+
+cds <- learn_graph(cds)
+```
+
 
 ```{r}
 cds <- order_cells(cds)
