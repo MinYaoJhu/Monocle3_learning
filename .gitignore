@@ -1,0 +1,16 @@
+# R and RStudio session files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# knitr caches
+*_cache/
+
+# Downloaded data and intermediate objects (re-created by the notebooks; see README)
+*.tar
+*.tar.gz
+/*.rds
+
+# OS files
+.DS_Store

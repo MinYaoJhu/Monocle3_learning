@@ -334,7 +334,7 @@ set.seed(2025)  # make UMAP/graphs reproducible
 #InstallData("hcabm40k")
 
 # install.packages(
-#   "D:/Oldroyd_lab/GitHub/Monocle3_learning/hcabm40k.SeuratData_3.0.0.tar.gz",
+#   "hcabm40k.SeuratData_3.0.0.tar.gz",  # from https://seurat.nygenome.org/src/contrib/
 #   repos = NULL,
 #   type = "source"
 # )
